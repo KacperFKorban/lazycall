@@ -2,7 +2,7 @@
 
 Tired of having to call right methods? Tired of having to know names of methods?
 
-Buy do I have a thing for You.
+Boy do I have a thing for You.
 
 ```scala
 import lazycall.*
