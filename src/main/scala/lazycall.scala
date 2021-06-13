@@ -3,9 +3,9 @@ import scala.quoted.*
 object lazycall:
 
   extension [S](self: S)
-    inline def magicTo[T]: T = ${lazyToImpl[S, T]('self)}
+    inline def magicGet[T]: T = ${magicGetImpl[S, T]('self)}
 
-  def lazyToImpl[S: Type, T: Type](selfExpr: Expr[S])(using Quotes): Expr[T] =
+  def magicGetImpl[S: Type, T: Type](selfExpr: Expr[S])(using Quotes): Expr[T] =
     import quotes.reflect.*
 
     val resultType = TypeRepr.of[T]
@@ -21,6 +21,6 @@ object lazycall:
       methods
     ).asExprOf[T]
 
-  end lazyToImpl
+  end magicGetImpl
 
 end lazycall

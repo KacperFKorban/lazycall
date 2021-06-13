@@ -6,7 +6,7 @@ class LazyCallTest extends munit.FunSuite {
       def a: Long = i.toLong
     }
 
-    val res = XD(1).magicTo[Long]
+    val res = XD(1).magicGet[Long]
     assertEquals(res, 1.toLong)
   }
 }

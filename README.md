@@ -13,7 +13,7 @@ case class XD(i: Int) {
   def a: Long = i.toLong
 }
 
-XD(1).magicTo[Long]
+XD(1).magicGet[Long]
 ```
 
 Disclaimer: The work `lazy` in name has nothing to do with the way methods are called. It only describes the state of mind of potential user.
