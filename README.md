@@ -15,3 +15,5 @@ case class XD(i: Int) {
 
 XD(1).magicTo[Long]
 ```
+
+Disclaimer: The work `lazy` in name has nothing to do with the way methods are called. It only describes the state of mind of potential user.
