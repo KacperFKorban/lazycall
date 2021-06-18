@@ -14,12 +14,16 @@ object lazycall:
       val defdef = method.tree.asInstanceOf[DefDef]
       defdef.returnTpt.tpe =:= resultType
         && defdef.paramss.flatMap(_.params).isEmpty //TODO cnsider non empty lists (returning functions or sth)
-    }.head
+    }
 
-    Select(
-      selfExpr.asTerm,
-      methods
-    ).asExprOf[T]
+    methods match
+      case List(method) =>
+        Select(
+          selfExpr.asTerm,
+          method
+        ).asExprOf[T]
+      case _ =>
+        report.throwError("No can do Amigo!")
 
   end magicGetImpl
 
